@@ -12,7 +12,13 @@
   <% end %>
 
 	<div id="webcam">
-		<p>Hola</p>
+		<p>
+			<a id='capture'>Capturar</a>
+			<div id="capture_images"><input id="capture_image" type="hidden" value="" name="capture[image]"></div>
+		</p>		
+	</div>
+	<div>
+		<canvas id="canvas" height="240" width="320"></canvas>
 	</div>
 
   <div class="field">
