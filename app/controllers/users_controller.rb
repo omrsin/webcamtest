@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+	require 'base64'
+	
   # GET /users
   # GET /users.json
   def index
@@ -41,6 +43,22 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(params[:user])
+##    uploader = ImageUploader.new(@user, :image)
+   
+###    io = FilelessIO.new(Base64.decode64(@user.image))
+###    io.original_filename = 'test.png'
+
+    File.open("#{Rails.root}/public/image_name.png", 'wb') do |f|
+      f.write(Base64.decode64(@user.code))
+    end
+    
+    @user.code = 'code'
+    
+##    uploader.store!(File.open(File.join(Rails.root, "/public/image_name.png")))
+##    @user.image = uploader.to_s
+
+#		@user.image = "image_name.png"
+		@user.image = File.open("#{Rails.root}/public/image_name.png")
 
     respond_to do |format|
       if @user.save
@@ -81,3 +99,7 @@ class UsersController < ApplicationController
     end
   end
 end
+
+###class FilelessIO < StringIO
+###	attr_accessor :original_filename
+###end
