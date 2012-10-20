@@ -27,7 +27,11 @@ test:
   timeout: 5000
 
 production:
-  adapter: sqlite3
-  database: db/production.sqlite3
+  adapter: postgresql
+  encoding: unicode
+  host: localhost  
+  database: webcamtest_development
   pool: 5
+  username: omar
+  password: admin
   timeout: 5000

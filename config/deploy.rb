@@ -2,9 +2,11 @@ require "bundler/capistrano"
 
 load "config/recipes/base"
 load "config/recipes/nginx"
+load "config/recipes/unicorn"
 load "config/recipes/postgresql"
 load "config/recipes/nodejs"
 load "config/recipes/rbenv"
+load "config/recipes/check"
 
 server "198.74.50.103", :web, :app, :db, primary: true
 
