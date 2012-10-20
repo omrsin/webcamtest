@@ -7,7 +7,6 @@ gem 'carrierwave'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 group :development, :test do
-#	gem 'sqlite3', '1.3.5'
 	gem 'pg', '0.12.2'
 end
 
@@ -37,7 +36,7 @@ end
 # gem 'jbuilder'
 
 # Use unicorn as the app server
-# gem 'unicorn'
+ gem 'unicorn'
 
 # Deploy with Capistrano
  gem 'capistrano'
